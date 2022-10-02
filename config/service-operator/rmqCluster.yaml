@@ -1,0 +1,14 @@
+apiVersion: rabbitmq.com/v1beta1
+kind: RabbitmqCluster
+metadata:
+  annotations:
+    rabbitmq.com/topology-allowed-namespaces: '*'
+  name: rmq-hungryman
+  namespace: dev
+spec:
+  replicas: 1
+  resources:
+    requests:
+      cpu: 200m
+    limits:
+      cpu: 200m
