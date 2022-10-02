@@ -46,7 +46,7 @@ apiVersion: services.apps.tanzu.vmware.com/v1alpha1
 kind: ResourceClaimPolicy
 metadata:
   name: rabbitmqcluster-cross-namespace
-  namespace: dev
+  namespace: service-instances
 spec:
   consumingNamespaces:
   - '*'
@@ -64,4 +64,4 @@ spec:
     apiVersion: rabbitmq.com/v1beta1
     kind: RabbitmqCluster
     name: rmq-hungryman
-    namespace: dev
+    namespace: service-instances

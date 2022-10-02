@@ -52,7 +52,7 @@ apiVersion: services.apps.tanzu.vmware.com/v1alpha1
 kind: ResourceClaimPolicy
 metadata:
   name: mysql-cross-namespace
-  namespace: dev
+  namespace: service-instances
 spec:
   consumingNamespaces:
   - '*'
@@ -70,4 +70,4 @@ spec:
     apiVersion: with.sql.tanzu.vmware.com/v1
     kind: MySQL
     name: db-hungryman
-    namespace: dev
+    namespace: service-instances
