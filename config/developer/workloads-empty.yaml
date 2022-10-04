@@ -30,9 +30,7 @@ metadata:
     app.kubernetes.io/part-of: hungryman-search
     networking.knative.dev/visibility: cluster-local
 spec:
-  env:
-  - name: spring_profiles_active
-    value: mysql
+  env: null
   params:
   - name: annotations
     value:
@@ -43,11 +41,6 @@ spec:
       apiVersion: services.apps.tanzu.vmware.com/v1alpha1
       kind: ResourceClaim
       name: rmq-hungryman
-  - name: db
-    ref:
-      apiVersion: services.apps.tanzu.vmware.com/v1alpha1
-      kind: ResourceClaim
-      name: db-hungryman
   source:
     git:
       url: https://github.com/vmware-tanzu/application-accelerator-samples.git
@@ -119,9 +112,7 @@ metadata:
     app.kubernetes.io/part-of: hungryman-availability
     networking.knative.dev/visibility: cluster-local
 spec:
-  env:
-  - name: spring_profiles_active
-    value: mysql
+  env: null
   params:
   - name: annotations
     value:
@@ -132,11 +123,6 @@ spec:
       apiVersion: services.apps.tanzu.vmware.com/v1alpha1
       kind: ResourceClaim
       name: rmq-hungryman
-  - name: db
-    ref:
-      apiVersion: services.apps.tanzu.vmware.com/v1alpha1
-      kind: ResourceClaim
-      name: db-hungryman
   source:
     git:
       url: https://github.com/vmware-tanzu/application-accelerator-samples.git

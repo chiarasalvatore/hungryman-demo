@@ -2,13 +2,19 @@ apiVersion: carto.run/v1alpha1
 kind: Workload
 metadata:
   name: hungryman-search
-  namespace: workloads
+  namespace: dev
   labels:
     apps.tanzu.vmware.com/workload-type: web
-    app.kubernetes.io/part-of: hungryman
+    app.kubernetes.io/part-of: hungryman-search
     networking.knative.dev/visibility: cluster-local
+    apps.tanzu.vmware.com/has-tests: "true"    
 spec:
+  env: null
   params:
+  - name: testing_pipeline_matching_labels 
+    value:
+      apps.tanzu.vmware.com/pipeline: test
+      apps.tanzu.vmware.com/language: java-basic    
   - name: annotations
     value:
       autoscaling.knative.dev/minScale: "1"
@@ -20,7 +26,7 @@ spec:
       name: rmq-hungryman
   source:
     git:
-      url: https://github.com/vmware-tanzu/application-accelerator-samples.git
+      url: https://github.com/chiarasalvatore/hungryman-demo.git
       ref:
         branch: main
     subPath: hungryman/hungryman-search
